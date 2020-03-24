@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title size="large" color="primary" >
+      Lista de compras
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" color="medium">
+  
+  <ion-list>
+    <div *ngFor="let insumo of insumos; index as i">
+      <ion-item-sliding (click)="changeStatus(i)">
+        <ion-item>
+          <ion-label color="secondary">{{insumo.name}}</ion-label>
+          <ion-chip color="success" *ngIf="insumo.active">
+            <ion-label>Comprado</ion-label>
+          </ion-chip>
+          <ion-chip color="danger" *ngIf="!insumo.active">
+            <ion-label>Aun no adquirido</ion-label>
+          </ion-chip>
+        </ion-item>
+
+        <ion-item-options>
+        </ion-item-options>
+
+      </ion-item-sliding>
+      
+    </div>
+  </ion-list>
+  
+</ion-content>
